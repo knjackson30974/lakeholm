@@ -1,12 +1,11 @@
 <?php
 
 /**
- * Front page template
+ * Front Page Template
  *
- * @package      lakeholm
- * @author       Carrie Dils
- * @link         http://www.carriedils.com/
- * @copyright    Copyright (c) 2015, Carrie Dils
+ * @package      Lakeholm
+ * @author       Kylea Jackson
+ * @copyright    Copyright (c) 2016, Kylea Jackson
  * @license      GPL-2.0+
  */
 
