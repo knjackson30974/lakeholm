@@ -52,6 +52,13 @@ function lakeholm_setup() {
   genesis_unregister_layout( 'sidebar-content-sidebar' );
   genesis_unregister_layout( 'sidebar-sidebar-content' );
 
+  /** Remove Genesis footer widgets **/
+  remove_theme_support( 'genesis-footer-widgets', 3 );
+  
+  /** Add support for 1 footer widget **/
+  add_theme_support( 'genesis-footer-widgets', 1 );
+
+
   // Unregister secondary sidebar.
   unregister_sidebar( 'sidebar-alt' );
 
@@ -91,6 +98,13 @@ function lakeholm_setup() {
     wp_enqueue_style('font-awesome-ex', get_stylesheet_directory_uri() . '/includes/fontawesome_ex/font-awesome-extension.css'); 
   }
   add_action('wp_enqueue_scripts','enqueue_fae_stylesheets');
+
+  // Register responsive menu script
+  add_action( 'wp_enqueue_scripts', 'lakeholm_enqueue_scripts' );
+
+  function lakeholm_enqueue_scripts() {
+    wp_enqueue_script( 'lakeholm-responsive-menu', get_stylesheet_directory_uri() . '/script/responsive-menu.js', array( 'jquery' ), '1.0.0', true );
+  }
 
 
 }

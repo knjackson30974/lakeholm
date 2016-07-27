@@ -10,6 +10,7 @@ Tags:
 Template: genesis
 Text Domain: lakeholm
 */
+
 /* Table of Contents
 - HTML5 Reset
 	- Baseline Normalize
@@ -31,6 +32,8 @@ Text Domain: lakeholm
 - Site Footer
 - Front Page
 - Plugins
+- Media Queries
+- Responsive Navigation
 */
 
 /* # HTML5 Reset
@@ -758,9 +761,7 @@ th {
 }
 
 .footer-widgets .widget-area {
-	float: left;
 	padding-right: 5%;
-	width: 30%;
 }
 
 .footer-widgets .footer-widgets-3 {
@@ -771,6 +772,7 @@ th {
 	margin-top: 10px;
 	width: 100%;
 }
+
 
 /* # Site Footer
 ---------------------------------------------------------------------------------------------------- */
@@ -873,6 +875,276 @@ th {
 	margin-top: 20px;
 }
 
-.fa {
-  padding: 5px 5px 5px 5px;
+
+/* # Media Queries
+---------------------------------------------------------------------------------------------------- */
+
+@media only screen and (max-width: 1280px) {
+
+	.site-inner,
+	.site-footer,
+	.footer-widgets,
+	.home-welcome,
+	.call-to-action,
+	.wrap {
+		max-width: 960px;
+	}
+
+	.content-sidebar-sidebar .content-sidebar-wrap,
+	.sidebar-content-sidebar .content-sidebar-wrap,
+	.sidebar-sidebar-content .content-sidebar-wrap {
+		width: 720px;
+	}
+
+	.content,
+	.site-header .widget-area {
+		width: 600px;
+	}
+
+	.sidebar-content-sidebar .content,
+	.sidebar-sidebar-content .content,
+	.content-sidebar-sidebar .content {
+		width: 360px;
+	}
+
+	.sidebar-primary,
+	.title-area {
+		width: 300px;
+	}
+
+	.footer-widgets .footer-widgets-3 {
+		padding-right: 0;
+	}
+
+	.footer-widgets .search-form input[type="submit"] {
+		margin-top: 10px;
+		width: 100%;
+	}
+	.home-welcome h3 {
+		font-size: 52px;
+	}
+	.home-welcome .textwidget {
+		font-size: 18px;
+	}
+
+
+
+/* # Site Footer
+---------------------------------------------------------------------------------------------------- */
+
+.site-footer {
+	font-size: 14px;
+	margin-top: 40px;
+	text-align: center;
+}
+
+@media only screen and (max-width: 1020px) {
+
+	.site-inner,
+	.site-footer,
+	.footer-widgets,
+	.home-welcome,
+	.call-to-action,
+	.wrap{
+		max-width: 800px;
+	}
+
+	.content,
+	.content-sidebar-sidebar .content,
+	.content-sidebar-sidebar .content-sidebar-wrap,
+	.sidebar-content-sidebar .content,
+	.sidebar-content-sidebar .content-sidebar-wrap,
+	.sidebar-primary,
+	.sidebar-secondary,
+	.sidebar-sidebar-content .content,
+	.sidebar-sidebar-content .content-sidebar-wrap,
+	.site-header .widget-area,
+	.title-area {
+		width: 100%;
+	}
+
+	.site-header .wrap {
+		padding: 20px 5%;
+	}
+
+	.header-image .site-title > a {
+		background-position: center top;
+	}
+
+	.genesis-nav-menu li,
+	.site-header ul.genesis-nav-menu,
+	.site-header .search-form {
+		float: none;
+	}
+
+	.genesis-nav-menu,
+	.site-description,
+	.site-header .title-area,
+	.site-header .search-form,
+	.site-title {
+		text-align: center;
+	}
+
+	.genesis-nav-menu a,
+	.genesis-nav-menu > .first > a,
+	.genesis-nav-menu > .last > a {
+		padding: 20px 16px;
+	}
+
+	.site-header .search-form {
+		margin: 16px auto;
+	}
+
+}
+
+@media only screen and (max-width: 880px) {
+
+	.site-inner,
+	.site-footer,
+	.footer-widgets,
+	.home-welcome,
+	.call-to-action,
+	.wrap{
+		padding-left: 5%;
+		padding-right: 5%;
+	}
+
+}
+
+
+
+
+/* Responsive Navigation
+---------------------------------------------------------------------------------------------------- */
+
+/* Standard Navigation
+--------------------------------------------- */
+
+nav-primary {
+	clear: both;
+}
+
+/* Navigation toggles
+--------------------------------------------- */
+
+.sub-menu-toggle,
+.menu-toggle {
+	display: none;
+	visibility: hidden;
+}
+
+/* Navigation toggles - Ensure Menu Displays when Scaled Up
+--------------------------------------------- */
+
+@media only screen and (min-width: 768px) {
+
+	nav-primary {
+		display: block !important;
+	}
+}
+
+/* Navigation toggles - Mobile (Change max width as you see fit)
+--------------------------------------------- */
+
+@media only screen and (max-width: 767px) {
+
+
+	nav-primary {
+	display: block !important;
+	}
+
+	.genesis-nav-menu .menu-item > .sub-menu {
+	display: block !important;
+	}
+
+
+	.menu-toggle,
+	.sub-menu-toggle {
+		display: block;
+		font-size: 20px;
+		font-size: 2rem;
+		font-weight: 700;
+		margin: 0 auto;
+		overflow: hidden;
+		padding: 20px;
+		padding: 2rem;
+		text-align: center;
+		visibility: visible;
+	}
+
+	button.menu-toggle,
+	button.sub-menu-toggle {
+		background-color: transparent;
+		color: #999;
+	}
+
+	.sub-menu-toggle {
+		padding: 18px;
+		padding: 1.8rem;
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+
+	.menu-toggle:before {
+		content: "\2261";
+	}
+
+	.menu-toggle.activated:before {
+		content: "\2191";
+	}
+
+	.sub-menu-toggle:before {
+		content: "+";
+	}
+
+	.sub-menu-toggle.activated:before {
+		content: "-";
+	}
+
+
+	.genesis-nav-menu .menu-item {
+		background-color: #494949;
+		display: block;
+		position: relative;
+		text-align: left;
+	}
+
+	.genesis-nav-menu .menu-item:hover {
+		position: relative;
+	}
+
+	.genesis-nav-menu .sub-menu {
+		clear: both;
+		display: none;
+		opacity: 1;
+		position: static;
+		width: 100%;
+	}
+
+	.genesis-nav-menu .sub-menu a {
+		border-left: 0;
+		position: relative;
+		width: auto;
+	}
+
+	.genesis-nav-menu .sub-menu .sub-menu {
+		margin: 0;
+	}
+
+	.genesis-nav-menu .sub-menu .sub-menu a {
+		background-color: #494949;
+		padding-left: 30px;
+	}
+
+	.genesis-nav-menu .sub-menu .sub-menu .sub-menu a {
+		background-color: #fff;
+		padding-left: 40px;
+	}
+
+	.nav-primary a:hover,
+	.nav-primary .current-menu-item > a {
+		color: #333;
+	}
+
 }
