@@ -99,12 +99,21 @@ function lakeholm_setup() {
   }
   add_action('wp_enqueue_scripts','enqueue_fae_stylesheets');
 
-  // Register responsive menu script
-  add_action( 'wp_enqueue_scripts', 'lakeholm_enqueue_scripts' );
+  
+  // Enqueue Scripts and Styles
+  add_action( 'wp_enqueue_scripts', 'custom_enqueue_scripts_styles' );
+  function custom_enqueue_scripts_styles() {
 
-  function lakeholm_enqueue_scripts() {
-    wp_enqueue_script( 'lakeholm-responsive-menu', get_stylesheet_directory_uri() . '/script/responsive-menu.js', array( 'jquery' ), '1.0.0', true );
+    // wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Roboto+Condensed:300italic,700italic,700,300', array(), CHILD_THEME_VERSION );
+    wp_enqueue_style( 'dashicons' );
+
+    wp_enqueue_script( 'responsive-menu', get_stylesheet_directory_uri() . '/lib/js/responsive-menu.js', array( 'jquery' ), '1.0.0', true );
+    $output = array(
+      'mainMenu' => __( 'Menu', 'my-theme-text-domain' ),
+      'subMenu'  => __( 'Menu', 'my-theme-text-domain' ),
+    );
+    wp_localize_script( 'responsive-menu', 'ResponsiveMenuL10n', $output );
+
   }
-
 
 }
