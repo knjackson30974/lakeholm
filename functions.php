@@ -100,8 +100,7 @@ function lakeholm_setup() {
   add_action('wp_enqueue_scripts','enqueue_fae_stylesheets');
 
   
-  // Enqueue Scripts and Styles
-  add_action( 'wp_enqueue_scripts', 'custom_enqueue_scripts_styles' );
+
   function custom_enqueue_scripts_styles() {
 
     // wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Roboto+Condensed:300italic,700italic,700,300', array(), CHILD_THEME_VERSION );
@@ -113,7 +112,40 @@ function lakeholm_setup() {
       'subMenu'  => __( 'Menu', 'my-theme-text-domain' ),
     );
     wp_localize_script( 'responsive-menu', 'ResponsiveMenuL10n', $output );
-
   }
 
+    // Enqueue Scripts and Styles
+  add_action( 'wp_enqueue_scripts', 'custom_enqueue_scripts_styles' );
+
 }
+function make_a_post() {
+  $url = 'http://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=8&q=http%3A%2F%2Fnews.google.com%2Fnews%3Foutput%3Drss';
+  $slices = json_decode(file_get_contents($url, true), true);
+   
+  if ($slices) { 
+    foreach($slices as $arr){
+      if(is_array($arr['feed'])) {
+        foreach($arr['feed'] as $resp){
+          if(is_array($resp)) {
+            foreach($resp as $feed){
+              $title = $feed['title'];
+              $content = $feed['content'];
+              $my_post = array(
+                 'post_title'    =>  $title,
+                 'post_content'  => $content,
+                 'post_status'   => 'publish',
+                 'post_author'   => 1,
+                 'post_category' => array(8,39), 
+                 'post-type'     => 'page'
+              );
+              if (null == get_page_by_title( $title, OBJECT, 'post' )) {
+                $post_id = wp_insert_post( $my_post, false );
+              }
+            }
+          }
+        }
+      }
+    } 
+  }
+}
+ add_action( 'genesis_before_footer', 'make_a_post' );

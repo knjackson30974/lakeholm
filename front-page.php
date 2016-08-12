@@ -37,6 +37,7 @@ function lakeholm_home_page_setup() {
 	if ( $home_sidebars['call_to_action'] ) {
 		add_action( 'genesis_after_header', 'lakeholm_add_call_to_action' );
 	}
+	wp_link_pages();
 
 }
 
@@ -69,5 +70,4 @@ function lakeholm_add_call_to_action() {
 		)
 	);
 }
-
 genesis();

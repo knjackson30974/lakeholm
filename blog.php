@@ -47,4 +47,5 @@ function lakeholm_add_home_welcome() {
 		)
 	);
 }
+wp_link_pages();
 genesis();

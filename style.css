@@ -133,8 +133,8 @@ textarea:focus,
 }
 
 a {
-	color: #c3251d;
-	text-decoration: underline;
+	color: #0EE8CB;
+	text-decoration: none;
 }
 
 a:hover,
@@ -385,7 +385,10 @@ input:focus[type="submit"],
 
 .entry-content .button:hover,
 .entry-content .button:focus {
-	color: #fff;
+	color: #0EE8CB;
+}
+.entry-title {
+	color: #0EE8CB;
 }
 
 .footer-widgets button,
@@ -741,18 +744,18 @@ th {
 
 .footer-widgets .wrap {
 	background-color: #333;
-	color: #fff;
+	color: #0EE8CB;
 	margin: 0 auto;
 	padding: 20px;
 	width: 1200px;
 }
 
 .footer-widgets .widgettitle {
-	color: #fff;
+	color: #0EE8CB;
 }
 
 .footer-widgets a {
-	color: #fff;
+	color: #0EE8CB;
 	text-decoration: underline;
 }
 
@@ -760,7 +763,7 @@ th {
 	padding-right: 5%;
 }
 
-.footer-widgets .footer-widgets-3 {
+.footer-widgets .footer-widgets-1 {
 	padding-right: 0;
 }
 
